@@ -1,0 +1,46 @@
+VAULTSERVER_COUNT = 1
+#VAULTDC_COUNT = 1
+#VAULTK8S_COUNT = 1
+IMAGEVAULT = "bento/ubuntu-22.04"
+#IMAGEDC = "gusztavvargadr/windows-server"
+#IMAGEK8S = "bento/ubuntu-22.04"
+
+Vagrant.configure("2") do |config|
+
+  (1..VAULTSERVER_COUNT).each do |i|
+    config.vm.define "vaultserver#{i}" do |vaultservers|
+      vaultservers.vm.box = IMAGEVAULT
+      vaultservers.vm.hostname = "vaultserver#{i}"
+      vaultservers.vm.network  :private_network, ip: "192.168.56.#{i+10}"
+      #vaultservers.vm.provision "file", source: "./.ssh/id_rsa.pub", destination: "/tmp/id_rsa.pub"
+      #vaultservers.vm.provision "file", source: "./.ssh/id_rsa", destination: "/tmp/id_rsa"
+      vaultservers.vm.provision "file", source: "./config/vaultconfig.hcl", destination: "/tmp/config.hcl"
+      vaultservers.vm.provision "file", source: "./config/vaultservice", destination: "/tmp/vaultservice"
+      vaultservers.vm.provision "shell", privileged: true,  path: "scripts/vault_install.sh"
+    end
+  end
+
+#  (1..VAULTDC_COUNT).each do |i|
+#    config.vm.define "vaultdc#{i}" do |vaultdcs|
+#      vaultdcs.vm.box = IMAGEDC
+#      vaultdcs.vm.hostname = "vaultdc#{i}"
+#      vaultdcs.vm.network  :private_network, ip: "192.168.56.#{i+20}"
+#      #vaultdcs.vm.provision "file", source: "./.ssh/id_rsa.pub", destination: "/tmp/id_rsa.pub"
+#      #vaultdcs.vm.provision "file", source: "./.ssh/id_rsa", destination: "/tmp/id_rsa"
+#      vaultdcs.vm.provision "file", source: "./addscert/request.inf", destination: "c/request.inf"
+#      vaultdcs.vm.provision "shell", privileged: true,  path: "scripts/installdc.ps1"
+#    end
+#  end
+#
+#  (1..VAULTK8S_COUNT).each do |i|
+#    config.vm.define "vaultk8s#{i}" do |vaultk8ss|
+#      vaultk8ss.vm.box = IMAGEK8S
+#      vaultk8ss.vm.hostname = "vaultk8s#{i}"
+#      vaultk8ss.vm.network  :private_network, ip: "192.168.56.#{i+30}"
+#      vaultk8ss.vm.provision "file", source: "./.ssh/id_rsa.pub", destination: "/tmp/id_rsa.pub"
+#      vaultk8ss.vm.provision "file", source: "./.ssh/id_rsa", destination: "/tmp/id_rsa"
+#      vaultk8ss.vm.provision "shell", privileged: true,  path: "scripts/k3s_install.sh"
+#    end
+#  end
+
+end
