@@ -1,0 +1,5 @@
+id_rsa
+id_rsa.*
+/test/
+.vscode
+.vagrant
