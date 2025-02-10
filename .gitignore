@@ -3,3 +3,7 @@ id_rsa.*
 /test/
 .vscode
 .vagrant
+backend.hcl
+terraformvaultpwd.txt
+.terraform
+.terraform.lock.hcl
