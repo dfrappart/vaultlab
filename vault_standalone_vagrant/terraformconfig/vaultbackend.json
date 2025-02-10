@@ -1,0 +1,156 @@
+{
+  "token/": {
+    "accessor": "auth_token_d7e2d457",
+    "config": {
+      "default_lease_ttl": 0,
+      "force_no_cache": false,
+      "max_lease_ttl": 0,
+      "token_type": "default-service"
+    },
+    "description": "token based credentials",
+    "external_entropy_access": false,
+    "local": false,
+    "options": null,
+    "plugin_version": "",
+    "running_plugin_version": "v1.18.3+builtin.vault",
+    "running_sha256": "",
+    "seal_wrap": false,
+    "type": "token",
+    "uuid": "28c04b5f-0d51-8c74-9208-fa981209dae1"
+  },
+  "userpass/": {
+    "accessor": "auth_userpass_671751c5",
+    "config": {
+      "default_lease_ttl": 0,
+      "force_no_cache": false,
+      "max_lease_ttl": 0,
+      "token_type": "default-service"
+    },
+    "deprecation_status": "supported",
+    "description": "",
+    "external_entropy_access": false,
+    "local": false,
+    "options": null,
+    "plugin_version": "",
+    "running_plugin_version": "v1.18.3+builtin.vault",
+    "running_sha256": "",
+    "seal_wrap": false,
+    "type": "userpass",
+    "uuid": "3626a3f2-c9c4-c87d-30af-86667cf8d9f6"
+  },
+  "yetanotheruserpath/": {
+    "accessor": "auth_userpass_f11282b1",
+    "config": {
+      "allowed_response_headers": [
+        ""
+      ],
+      "audit_non_hmac_request_keys": [
+        ""
+      ],
+      "audit_non_hmac_response_keys": [
+        ""
+      ],
+      "default_lease_ttl": 0,
+      "force_no_cache": false,
+      "listing_visibility": "unauth",
+      "max_lease_ttl": 90000,
+      "passthrough_request_headers": [
+        ""
+      ],
+      "token_type": "default-service"
+    },
+    "deprecation_status": "supported",
+    "description": "This is an example userpass auth backend created by terraform",
+    "external_entropy_access": false,
+    "local": false,
+    "options": null,
+    "plugin_version": "",
+    "running_plugin_version": "v1.18.3+builtin.vault",
+    "running_sha256": "",
+    "seal_wrap": false,
+    "type": "userpass",
+    "uuid": "4a1c4645-5885-5888-f45a-f9f3d7d6dd51"
+  },
+  "request_id": "e781eded-ec34-dd52-da4b-bfbe07588845",
+  "lease_id": "",
+  "renewable": false,
+  "lease_duration": 0,
+  "data": {
+    "token/": {
+      "accessor": "auth_token_d7e2d457",
+      "config": {
+        "default_lease_ttl": 0,
+        "force_no_cache": false,
+        "max_lease_ttl": 0,
+        "token_type": "default-service"
+      },
+      "description": "token based credentials",
+      "external_entropy_access": false,
+      "local": false,
+      "options": null,
+      "plugin_version": "",
+      "running_plugin_version": "v1.18.3+builtin.vault",
+      "running_sha256": "",
+      "seal_wrap": false,
+      "type": "token",
+      "uuid": "28c04b5f-0d51-8c74-9208-fa981209dae1"
+    },
+    "userpass/": {
+      "accessor": "auth_userpass_671751c5",
+      "config": {
+        "default_lease_ttl": 0,
+        "force_no_cache": false,
+        "max_lease_ttl": 0,
+        "token_type": "default-service"
+      },
+      "deprecation_status": "supported",
+      "description": "",
+      "external_entropy_access": false,
+      "local": false,
+      "options": null,
+      "plugin_version": "",
+      "running_plugin_version": "v1.18.3+builtin.vault",
+      "running_sha256": "",
+      "seal_wrap": false,
+      "type": "userpass",
+      "uuid": "3626a3f2-c9c4-c87d-30af-86667cf8d9f6"
+    },
+    "yetanotheruserpath/": {
+      "accessor": "auth_userpass_f11282b1",
+      "config": {
+        "allowed_response_headers": [
+          ""
+        ],
+        "audit_non_hmac_request_keys": [
+          ""
+        ],
+        "audit_non_hmac_response_keys": [
+          ""
+        ],
+        "default_lease_ttl": 0,
+        "force_no_cache": false,
+        "listing_visibility": "unauth",
+        "max_lease_ttl": 90000,
+        "passthrough_request_headers": [
+          ""
+        ],
+        "token_type": "default-service"
+      },
+      "deprecation_status": "supported",
+      "description": "This is an example userpass auth backend created by terraform",
+      "external_entropy_access": false,
+      "local": false,
+      "options": null,
+      "plugin_version": "",
+      "running_plugin_version": "v1.18.3+builtin.vault",
+      "running_sha256": "",
+      "seal_wrap": false,
+      "type": "userpass",
+      "uuid": "4a1c4645-5885-5888-f45a-f9f3d7d6dd51"
+    }
+  },
+  "wrap_info": null,
+  "warnings": null,
+  "auth": null,
+  "mount_type": "system"
+}

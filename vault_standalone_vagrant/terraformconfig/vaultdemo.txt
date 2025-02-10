@@ -1,0 +1,163 @@
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # vault_auth_backend.userpass will be created
+  + resource "vault_auth_backend" "userpass" {
+      + accessor                  = (known after apply)
+      + default_lease_ttl_seconds = (known after apply)
+      + description               = "This is an example userpass auth backend created by terraform"
+      + id                        = (known after apply)
+      + listing_visibility        = (known after apply)
+      + max_lease_ttl_seconds     = (known after apply)
+      + path                      = "yetanotheruserpath"
+      + tune                      = [
+          + {
+              + allowed_response_headers     = []
+              + audit_non_hmac_request_keys  = []
+              + audit_non_hmac_response_keys = []
+              + listing_visibility           = "unauth"
+              + max_lease_ttl                = "90000s"
+              + passthrough_request_headers  = []
+                # (2 unchanged attributes hidden)
+            },
+        ]
+      + type                      = "userpass"
+    }
+
+  # vault_mount.kvv2 will be created
+  + resource "vault_mount" "kvv2" {
+      + accessor                  = (known after apply)
+      + default_lease_ttl_seconds = (known after apply)
+      + description               = "This is an KV Version 2 secret engine mount created by terraform"
+      + external_entropy_access   = false
+      + id                        = (known after apply)
+      + max_lease_ttl_seconds     = (known after apply)
+      + options                   = {
+          + "type"    = "kv-v2"
+          + "version" = "2"
+        }
+      + path                      = "kvstores/bebopkv"
+      + seal_wrap                 = (known after apply)
+      + type                      = "kv-v2"
+    }
+
+  # vault_policy.accessbebopkv["user1"] will be created
+  + resource "vault_policy" "accessbebopkv" {
+      + id     = (known after apply)
+      + name   = "Spikepolicy"
+      + policy = <<-EOT
+            path "kvstores/kvstores/bebopkv/data/Spike/*" {
+              capabilities = ["list", "create", "update", "read", "patch", "delete"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/metadata/Spike/*" {
+              capabilities = ["list", "create", "update", "read", "patch", "delete"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/*" {
+              capabilities = ["list"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/data/+/sharedsecrets/*" {
+              capabilities = ["read"]
+            }
+        EOT
+    }
+
+  # vault_policy.accessbebopkv["user2"] will be created
+  + resource "vault_policy" "accessbebopkv" {
+      + id     = (known after apply)
+      + name   = "Fayepolicy"
+      + policy = <<-EOT
+            path "kvstores/kvstores/bebopkv/data/Faye/*" {
+              capabilities = ["list", "create", "update", "read", "patch", "delete"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/metadata/Faye/*" {
+              capabilities = ["list", "create", "update", "read", "patch", "delete"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/*" {
+              capabilities = ["list"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/data/+/sharedsecrets/*" {
+              capabilities = ["read"]
+            }
+        EOT
+    }
+
+  # vault_policy.accessbebopkv["user3"] will be created
+  + resource "vault_policy" "accessbebopkv" {
+      + id     = (known after apply)
+      + name   = "Jetpolicy"
+      + policy = <<-EOT
+            path "kvstores/kvstores/bebopkv/data/Jet/*" {
+              capabilities = ["list", "create", "update", "read", "patch", "delete"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/metadata/Jet/*" {
+              capabilities = ["list", "create", "update", "read", "patch", "delete"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/*" {
+              capabilities = ["list"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/data/+/sharedsecrets/*" {
+              capabilities = ["read"]
+            }
+        EOT
+    }
+
+  # vault_policy.accessbebopkv["user4"] will be created
+  + resource "vault_policy" "accessbebopkv" {
+      + id     = (known after apply)
+      + name   = "Edpolicy"
+      + policy = <<-EOT
+            path "kvstores/kvstores/bebopkv/data/Ed/*" {
+              capabilities = ["list", "create", "update", "read", "patch", "delete"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/metadata/Ed/*" {
+              capabilities = ["list", "create", "update", "read", "patch", "delete"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/*" {
+              capabilities = ["list"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/data/+/sharedsecrets/*" {
+              capabilities = ["read"]
+            }
+        EOT
+    }
+
+  # vault_policy.accessbebopkv["user5"] will be created
+  + resource "vault_policy" "accessbebopkv" {
+      + id     = (known after apply)
+      + name   = "Einpolicy"
+      + policy = <<-EOT
+            path "kvstores/kvstores/bebopkv/data/Ein/*" {
+              capabilities = ["list", "create", "update", "read", "patch", "delete"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/metadata/Ein/*" {
+              capabilities = ["list", "create", "update", "read", "patch", "delete"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/*" {
+              capabilities = ["list"]
+            }
+            
+            path "kvstores/kvstores/bebopkv/data/+/sharedsecrets/*" {
+              capabilities = ["read"]
+            }
+        EOT
+    }
+
+Plan: 7 to add, 0 to change, 0 to destroy.
